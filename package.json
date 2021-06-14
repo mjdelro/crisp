@@ -1,7 +1,7 @@
 {
     "name"        : "crisp-md",
     "description" : "A fork for crisp, originally built by Kathy Qian",
-    "version"     : "1.0.6",
+    "version"     : "1.0.7",
 	"engines": {
 		"ghost": ">=3.0.0",
 		"ghost-api": "v3"
