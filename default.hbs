@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		{{! Document Settings }}
+		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+		{{! Page Meta }}
+		<title>{{meta_title}}</title>
+
+		{{! Prism Syntax Highlighting }}
+		<link rel="stylesheet" type="text/css" href="{{asset '/prism/prism.css'}}" />
+
+		{{! Google Fonts }}
+		<link href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans|Roboto|Source+Sans+Pro&display=swap" rel="stylesheet"> 
+
+		{{! Stylesheets }}
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+		crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="{{asset '/styles/magnific-popup.css'}}">
+		<link rel="stylesheet" type="text/css" href="{{asset '/styles/crisp.css'}}">
+		
+		{{! Responsive Meta Tags }}
+		<meta name="HandheldFriendly" content="True" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+					<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+					<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+				<![endif]-->
+		{{{block "head"}}}
+		{{ghost_head}}
+	</head>
+
+	<body class="{{body_class}}">
+		<div align="center">
+			<header id="header" {{#if @site.cover_image}} style="background-image: url('{{@site.cover_image}}')" {{/if}}>
+			{{#if @site.logo}}<a id="logo" href="{{@site.url}}"><img src="{{@site.logo}}" alt="{{@site.title}}" align="center" /></a>{{/if}}
+			<h1><a href="{{@site.url}}">{{@site.title}}</a></h1>
+			<p>{{@site.description}}</p>
+			{{> follow}}
+			{{navigation}}
+			<hr>
+			<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License" style="border-width:0" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png" width="80" /></a>
+			</br>
+			</header>
+		</div>
+		
+		<main id="content">
+			{{{body}}}
+		</main>
+
+		<footer id="footer">
+			<section id="footer-message">
+				</br>
+				These works are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+				</br>
+			</section>
+		</footer>
+
+		{{ghost_foot}}
+		<script src="{{asset '/js/jquery.min.js'}}"></script>
+		<script src="{{asset '/js/fslightbox.js'}}"></script>
+		<script type="text/javascript" src="{{asset '/prism/prism.js'}}"></script>
+
+		{{! Table of Contents Fix }}
+		<script type="text/javascript" src="{{asset '/js/toc.js'}}"></script>
+		
+		{{! kg-gallery support }}
+		<script type="text/javascript" src="{{asset '/js/kg-gallery.js'}}"></script>
+		<script>
+		let galleryImage = document.querySelectorAll('#content img');
+		galleryImage.forEach(function(galImg){
+		let imgSrc = galImg.src;
+		let galName = galImg.parentNode.className;
+		let innerWrapper = document.createElement('a');
+		innerWrapper.className = 'gwrap-inner';
+		innerWrapper.setAttribute("data-fslightbox", galName);
+		innerWrapper.setAttribute("data-type", "image");
+		innerWrapper.href = imgSrc;
+		galImg.parentNode.insertBefore(innerWrapper, galImg);
+		innerWrapper.appendChild(galImg);
+		let outterWrapper = document.createElement('div');
+		outterWrapper.className = 'gwrap-outter';
+		innerWrapper.parentNode.insertBefore(outterWrapper, innerWrapper);
+		outterWrapper.appendChild(innerWrapper);
+		});
+		refreshFsLightbox();
+		</script>
+		
+	</body>
+
+</html>

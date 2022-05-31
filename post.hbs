@@ -1,0 +1,27 @@
+{{!< default}}
+{{#post}}
+<article id="{{id}}" class="{{post_class}}">
+
+{{#if feature_image}}
+<div class="post-featured-image w-100">
+ <img class="w-100" src="{{img_url feature_image}}" alt="{{title}}">
+  </div>
+{{/if}}
+
+	<h1 class="post-title">{{title}}</h1>
+	<div class="single-post-meta-head w-100">
+	<div class="single-post-date float-left">
+	{{date published_at format='MMMM D, YYYY'}}
+	</div>
+	<div class="single-post-cat float-right">
+	<span class="taglist">{{tags separator=" " prefix=" &middot; "}}</span>{{#if featured}}<span class="separator"> &middot; </span><i class="fa fa-star-o feature-star"></i>{{/if}}
+	</div>
+	</div>
+ 
+	{{content}}
+	{{> share}} 
+  {{> comments}}
+</article>  
+{{/post}}
+
+

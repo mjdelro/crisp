@@ -1,0 +1,38 @@
+{
+    "name"        : "crisp-md",
+    "description" : "A fork for crisp, originally built by Kathy Qian",
+    "version"     : "1.0.6",
+	"engines": {
+		"ghost": ">=3.0.0",
+		"ghost-api": "v3"
+	},
+    "license": "MIT",
+    "screenshots": {
+        "desktop": "assets/screenshot-desktop.png",
+        "mobile": "assets/screenshot-mobile.png"
+    },
+    "author": {
+        "name": "Michael del Rosario",
+        "email": "me@michaeldelrosar.io",
+        "url": "https://michaeldelrosar.io"
+    },
+    "gpm": {
+        "type": "theme",
+        "categories": [
+            "Minimal",
+            "Personal Blogs"
+        ]
+    },
+    "keywords": [
+        "ghost",
+        "theme",
+        "ghost-theme"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mikejdelro/crisp.git"
+    },
+    "config": {
+        "posts_per_page": 10
+    }
+}
