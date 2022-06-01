@@ -46,7 +46,7 @@
 			</br>
 			</header>
 		</div>
-		
+
 		<main id="content">
 			{{{body}}}
 		</main>
@@ -69,22 +69,24 @@
 		
 		{{! kg-gallery support }}
 		<script type="text/javascript" src="{{asset '/js/kg-gallery.js'}}"></script>
+		
 		<script>
 		let galleryImage = document.querySelectorAll('#content img');
+		
 		galleryImage.forEach(function(galImg){
-		let imgSrc = galImg.src;
-		let galName = galImg.parentNode.className;
-		let innerWrapper = document.createElement('a');
-		innerWrapper.className = 'gwrap-inner';
-		innerWrapper.setAttribute("data-fslightbox", galName);
-		innerWrapper.setAttribute("data-type", "image");
-		innerWrapper.href = imgSrc;
-		galImg.parentNode.insertBefore(innerWrapper, galImg);
-		innerWrapper.appendChild(galImg);
-		let outterWrapper = document.createElement('div');
-		outterWrapper.className = 'gwrap-outter';
-		innerWrapper.parentNode.insertBefore(outterWrapper, innerWrapper);
-		outterWrapper.appendChild(innerWrapper);
+			let imgSrc = galImg.src;
+			let galName = galImg.parentNode.className;
+			let innerWrapper = document.createElement('a');
+			innerWrapper.className = 'gwrap-inner';
+			innerWrapper.setAttribute("data-fslightbox", galName);
+			innerWrapper.setAttribute("data-type", "image");
+			innerWrapper.href = imgSrc;
+			galImg.parentNode.insertBefore(innerWrapper, galImg);
+			innerWrapper.appendChild(galImg);
+			let outterWrapper = document.createElement('div');
+			outterWrapper.className = 'gwrap-outter';
+			innerWrapper.parentNode.insertBefore(outterWrapper, innerWrapper);
+			outterWrapper.appendChild(innerWrapper);
 		});
 		refreshFsLightbox();
 		</script>
